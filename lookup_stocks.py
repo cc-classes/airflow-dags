@@ -30,7 +30,7 @@ def lookup_stock_volumes(symbols):
 
 
 with DAG(
-    dag_id="lookup_stocks_s3",
+    dag_id="lookup_stocks",
     schedule=None,
     start_date=pendulum.datetime(2023, 3, 3, tz="UTC"),
     catchup=False,
