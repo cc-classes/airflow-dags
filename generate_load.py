@@ -26,7 +26,7 @@ with DAG(
     schedule=None,
     catchup=False,
 ) as dag:
-    num_of_tasks = 1000
+    num_of_tasks = 128
 
     # num_of_loops = 500000000
 
