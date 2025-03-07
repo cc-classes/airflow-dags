@@ -4,10 +4,10 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 
-def long_task(size=5000000):
+def long_task(size=1):
     print(f"<<<<<<<<< Starting long task ({size}) >>>>>>>>>>")
     counter = 0
-    for i in range(5000000):
+    for i in range(size):
         counter = counter + 1
     print(f"Looped: {counter} times")
     print(f"<<<<<<<<< Finished long task ({size}) >>>>>>>>>>")
@@ -19,8 +19,8 @@ with DAG(
     schedule=None,
     catchup=False,
 ) as dag:
-    num_of_tasks = 100
-    num_of_loops = 5000000
+    num_of_tasks = 1000
+    num_of_loops = 500000000
 
     tasks = [
         PythonOperator(
